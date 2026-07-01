@@ -5,9 +5,13 @@ import { aboutContent, services_h } from '../data';
 
 const Home = () => {
   const images = [
-    'https://images.unsplash.com/photo-1524522173746-f628baad3644?q=80&w=2000',
+    '/images/gradient.png',
+    '/images/photo-main-bg.png',
     '/images/T.image.png',
-    '/images/craft.png'
+    '/images/craft.png',
+    '/images/drift.png',
+    '/images/alongside.png'
+    
   ];
   const [current, setCurrent] = useState(0);
 
