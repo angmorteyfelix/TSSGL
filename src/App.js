@@ -9,7 +9,7 @@ import Services from './pages/Services';
 
 // We will create these simple components in the next step
 
-const Services_H = () => <div className="p-20 text-center text-2xl">Our Maritime Services</div>;
+const ServicesH = () => <div className="p-20 text-center text-2xl">Our Maritime Services</div>;
 
 function App() {
   return ( 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/fleet" element={<Fleet />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/services_h" element={<Services_H />} />
+        <Route path="/services_h" element={<ServicesH />} />
         
       </Routes>
     </div>

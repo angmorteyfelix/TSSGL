@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-//import { companyData } from '../data';
-import { aboutContent, services_h } from '../data';
+import { services_h } from '../data';
 
 const Home = () => {
   const images = [
     '/images/gradient.png',
     '/images/photo-main-bg.png',
+    '/images/gradient.png',
     '/images/T.image.png',
+    '/images/gradient.png',
     '/images/craft.png',
+    '/images/gradient.png',
     '/images/drift.png',
+    '/images/gradient.png',
     '/images/alongside.png'
     
   ];
