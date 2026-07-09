@@ -1,0 +1,38 @@
+
+> tssgl@0.1.0 build
+> react-scripts build 
+
+(node:28328) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+Compiled with warnings.
+
+[eslint] 
+src\data.js
+  Line 99:5:   Duplicate key 'icon'  no-dupe-keys
+  Line 130:5:  Duplicate key 'icon'  no-dupe-keys
+  Line 161:5:  Duplicate key 'icon'  no-dupe-keys
+
+src\pages\Services.js
+  Line 1:1:  Unexpected Unicode BOM (Byte Order Mark)  unicode-bom
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  85.81 kB  build\static\js\main.c20bf17e.js
+  5.01 kB   build\static\css\main.be8106f5.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+

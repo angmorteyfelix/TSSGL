@@ -96,7 +96,6 @@ export const services = [
         text: "For heavy, oversized or time-sensitive consignments, we coordinate custom logistics plans with specialised equipment, on-site handling and flexible delivery options tailored to complex maritime projects."
       }
     ],
-    icon: "📦",
     items: [
       "Customs brokerage and import/export documentation support",
       "Cargo handling, shore operations, and secure consolidation services",
@@ -127,7 +126,6 @@ export const services = [
         text: "In offshore operations, speed and reliability are essential. TSSGL provides rapid-response logistics coordination, emergency stores procurement, and real-time operational communication to keep your offshore mission on course."
       }
     ],
-    icon: "🌊",
     items: [
       "Offshore provisioning of fresh, dry and technical stores",
       "Direct delivery to port, anchorage and offshore locations",
@@ -158,7 +156,7 @@ export const services = [
         text: "When urgent supply needs arise, our emergency procurement service is ready to source and deliver critical stores quickly to minimize operational downtime."
       }
     ],
-    icon: "🛒",
+
     items: [
       "Quality ship supplies, safety equipment and technical spares",
       "Fresh and dry provisions tailored to voyage requirements",
