@@ -8,8 +8,8 @@ export const companyData = {
   contact: {
     hq: "Tema, Greater Accra, Ghana",
     email: "operations@thalassashoreservicesgh.com",
-    phone: "+233 (0) 538 584 722",
-    ops247: "+233 (0) 538 584 722",
+    phone: "+233 (0)54 976 0946",
+    ops247: "+233 (0)54 976 0946",
     location: "P.O. Box TM, Community 2, Tema Port Area"
   }
 };

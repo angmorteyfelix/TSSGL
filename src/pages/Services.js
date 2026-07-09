@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { services, companyData } from '../data';
+import React from 'react';
+import { services } from '../data';
 
 const Services = () => {
   return (
@@ -16,11 +16,13 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-6 py-24 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-tssglYellow mb-4">Service portfolio</p>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">Maritime and logistics solutions designed for safe, reliable port performance.</h1>
+              <p className="mb-4 text-sm uppercase tracking-[0.35em] text-tssglYellow">Service portfolio</p>
+              <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+                Maritime and logistics solutions designed for safe, reliable port performance.
+              </h1>
               <p className="mt-6 max-w-2xl text-lg text-slate-200">
                 We deliver ship agency, cargo coordination, offshore support and chandlery services across Ghana and the Gulf of Guinea with regulatory precision and operational speed.
               </p>
@@ -40,78 +42,52 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-16 lg:px-8">
-        <div className="space-y-16">
-          {services.map((service, index) => (
-            <article
-              key={service.title}
-              className={`grid gap-8 rounded-[2rem] border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/40 lg:grid-cols-[45%_55%] ${index % 2 !== 0 ? 'lg:grid-cols-[55%_45%]' : ''}`}
-            >
-              <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-100 shadow-sm">
-                {service.image ? (
-                  <>
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="h-full min-h-[20rem] w-full object-cover"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
-                  </>
-                ) : (
-                  <div className="flex h-80 w-full items-center justify-center bg-slate-200 text-6xl text-slate-500">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-8 lg:gap-10">
+          {services.map((service) => {
+            const imageSrc = service.image?.startsWith('./') ? service.image.replace('./', '/') : service.image;
+
+            return (
+              <article
+                key={service.title}
+                className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] lg:grid lg:grid-cols-[1.05fr_0.95fr]"
+              >
+                <div className="order-2 p-6 sm:p-8 lg:order-1 lg:p-10">
+                  <div className="mb-4 inline-flex rounded-full bg-slate-100 px-4 py-2 text-2xl">
                     {service.icon}
                   </div>
-                )}
-              </div>
+                  <h2 className="text-2xl font-semibold text-tssglBlue sm:text-3xl">{service.title}</h2>
+                  <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">{service.description}</p>
 
-              <div className="space-y-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-tssglYellow mb-3">{service.title}</p>
-                  <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
-                  <p className="mt-4 max-w-2xl text-gray-600">{service.description}</p>
-                </div>
+                  <ul className="mt-6 space-y-3">
+                    {service.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-slate-700 sm:text-base">
+                        <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-tssglYellow" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="grid gap-6 md:grid-cols-2">
-                  {service.details?.map((detail) => (
-                    <div key={detail.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                      <h3 className="text-xl font-semibold text-slate-900 mb-2">{detail.title}</h3>
-                      <p className="text-gray-600">{detail.text}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {service.items && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4">Core advantages</h3>
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {service.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-gray-700">
-                          <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-tssglBlue text-white">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="mt-8 grid gap-4 md:grid-cols-2">
+                    {service.details.map((detail) => (
+                      <div key={detail.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                        <h3 className="font-semibold text-slate-900">{detail.title}</h3>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">{detail.text}</p>
+                      </div>
+                    ))}
                   </div>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+                </div>
 
-      <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-tssglBlue text-white py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-tssglYellow mb-4">Ready to deploy</p>
-          <h2 className="text-4xl font-bold mb-4">Your next port call deserves expert support.</h2>
-          <p className="text-slate-200 mb-8">
-            Contact our operations team to coordinate vessel arrival, customs clearance and offshore logistics with confidence.
-          </p>
-          <a
-            href={`tel:${companyData.contact.phone}`}
-            className="inline-flex items-center justify-center rounded-full bg-tssglYellow px-10 py-4 text-sm font-semibold text-slate-950 shadow-lg shadow-slate-900/30 hover:bg-yellow-500 transition"
-          >
-            Call Operations: {companyData.contact.phone}
-          </a>
+                <div className="order-1 lg:order-2">
+                  <img
+                    src={imageSrc}
+                    alt={service.title}
+                    className="h-64 w-full object-cover sm:h-72 lg:h-full"
+                  />
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
     </div>
