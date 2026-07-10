@@ -6,6 +6,7 @@ import About from './pages/About';
 import Fleet from './pages/Fleet';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // We will create these simple components in the next step
 
@@ -22,8 +23,8 @@ function App() {
         <Route path="/fleet" element={<Fleet />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services_h" element={<ServicesH />} />
-        
       </Routes>
+      <WhatsAppButton />
     </div>
   );
 }
