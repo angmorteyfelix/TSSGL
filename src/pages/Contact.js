@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { companyData } from '../data';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    vessel: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const subject = encodeURIComponent('Request Quote');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nVessel / Company: ${formData.vessel}\n\nMessage:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:${companyData.contact.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
   return (
     <div className="bg-white min-h-screen">
       {/* Header Section */}
@@ -49,24 +73,29 @@ const Contact = () => {
 
           {/* Right: Contact Form */}
           <div className="bg-gray-50 p-8 rounded-2xl shadow-inner border border-gray-100">
-            <form className="grid grid-cols-1 gap-6">
+            <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Name</label>
-                  <input type="text" className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="Your Name" />
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Name</label>
+                  <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="Your Name" required />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Vessel Name / Company</label>
-                  <input type="text" className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="e.g. M/V Thunder" />
+                  <label htmlFor="vessel" className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Vessel Name / Company</label>
+                  <input id="vessel" name="vessel" type="text" value={formData.vessel} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="e.g. M/V Thunder" required />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Message</label>
-                <textarea rows="4" className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="How can we assist your operations?"></textarea>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Message</label>
+                <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-tssglBlue outline-none" placeholder="How can we assist your operations?" required></textarea>
               </div>
               <button type="submit" className="bg-tssglBlue text-white font-bold py-4 rounded hover:bg-blue-800 transition shadow-lg">
                 Send Request
               </button>
+              {submitted && (
+                <p className="text-sm text-green-700 bg-green-50 border border-green-200 rounded p-3">
+                  Your request is ready to be emailed to our operations team.
+                </p>
+              )}
             </form>
           </div>
 
