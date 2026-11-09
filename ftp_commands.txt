@@ -1,0 +1,4 @@
+open ftp.thalassashoreservicesgh.com
+user angmorteyfelix@thalassashoreservicesgh.com N11p@ssword694945
+ls
+quit

@@ -16,10 +16,10 @@ export const companyData = {
 
 //COMPANY SERVICES///
 export const services_h = [
-  { title: "Shipping Agency", icon: "🚢" , description: "Complete ship’s agency representation across all Ghanaian ports, delivering fast port clearance, berth coordination, customs liaison, and timely operational support for owners, charterers, and masters." },
-  { title: "Offshore Support", icon: "🌊" , description: "Purpose-built offshore logistics and replenishment services for anchorage, platform and open-water operations, including provisioning, boat transfer and crew movement." },
-  { title: "Logistics & Cargo", icon: "📦" , description: "Integrated cargo management and supply chain services that connect port operations with inland transport pathways, customs brokerage, warehousing, and project logistics." },
-  { title: "Chandlery", icon: "🛒" , description: "Specialized ship supply services delivering premium provisions, spares and technical stores with fast delivery to ports and anchorages throughout the Gulf of Guinea." }
+  { title: "Shipping Agency" , description: "Complete ship’s agency representation across all Ghanaian ports, delivering fast port clearance, berth coordination, customs liaison, and timely operational support for owners, charterers, and masters." },
+  { title: "Offshore Support" , description: "Purpose-built offshore logistics and replenishment services for anchorage, platform and open-water operations, including provisioning, boat transfer and crew movement." },
+  { title: "Logistics & Cargo", description: "Integrated cargo management and supply chain services that connect port operations with inland transport pathways, customs brokerage, warehousing, and project logistics." },
+  { title: "Chandlery",  description: "Specialized ship supply services delivering premium provisions, spares and technical stores with fast delivery to ports and anchorages throughout the Gulf of Guinea." }
 ];
 
 
